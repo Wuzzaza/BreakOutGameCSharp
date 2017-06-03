@@ -1,0 +1,9 @@
+G:\Study\VS\BreakOutGameCSharp\BreakOutGameCSharp\bin\Debug\BreakOutGameCSharp.exe.config
+G:\Study\VS\BreakOutGameCSharp\BreakOutGameCSharp\bin\Debug\BreakOutGameCSharp.exe
+G:\Study\VS\BreakOutGameCSharp\BreakOutGameCSharp\bin\Debug\BreakOutGameCSharp.pdb
+G:\Study\VS\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.csprojResolveAssemblyReference.cache
+G:\Study\VS\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.Properties.Resources.resources
+G:\Study\VS\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.csproj.GenerateResource.Cache
+G:\Study\VS\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.exe
+G:\Study\VS\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.pdb
+G:\Study\VS\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.GameWindow.resources
