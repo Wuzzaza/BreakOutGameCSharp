@@ -10,18 +10,24 @@ namespace BreakOutGameCSharp
 {
     class Brick
     {
-        public int x, y;
+        public const int WIDTH = 50, HEIGHT = 20;
 
-        public Image image = new Bitmap(Properties.Resources.ResourceManager.GetObject("brick_violet_small") as Image, new Size(50, 20)) as Image;
+        public Rectangle rect;
+
+        public Image image = Properties.Resources.ResourceManager.GetObject("brick_violet_small") as Image;
 
         public Brick(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            rect = new Rectangle(x, y, WIDTH, HEIGHT);
         }
 
         public Rectangle getRect() {
-            return new Rectangle(x, y, 50, 20);
+            return rect;
+        }
+
+        public void draw(Graphics g)
+        {
+            g.DrawImage(image, rect);
         }
     }
 }

@@ -9,32 +9,31 @@ namespace BreakOutGameCSharp
 {
         class Ball
     {
-        const int BALL_SPEED = 10;
-
-        public int x, y;
+        const int BALL_SPEED = 10, WIDTH = 20, HEIGHT = 20;
 
         public double angle;
 
-        public Image image = new Bitmap(Properties.Resources.ResourceManager.GetObject("ball_red") as Image, new Size(20, 20)) as Image;
+        public Rectangle rect;
+
+        public Image image = Properties.Resources.ResourceManager.GetObject("ball_red") as Image;
 
         public Ball(int x, int y)
         {
+            rect = new Rectangle(x, y, WIDTH, HEIGHT);
             this.angle = -45;
-            this.x = x;
-            this.y = y;
         }
 
         public void move() {
-            this.x = getNextCoords().X;
-            this.y = getNextCoords().Y;
+            rect.X = getNextCoords().X;
+            rect.Y = getNextCoords().Y;
         }
 
         public Point getNextCoords() {
-            return new Point(this.x + (int)(Math.Cos(3.14 * angle / 180) * BALL_SPEED), this.y + (int)(Math.Sin(3.14 * angle / 180) * BALL_SPEED));
+            return new Point(rect.X + (int)(Math.Cos(3.14 * angle / 180) * BALL_SPEED), rect.Y + (int)(Math.Sin(3.14 * angle / 180) * BALL_SPEED));
         }
 
         public Rectangle getNextRectangle() {
-            return new Rectangle(getNextCoords(), new Size(20, 20));
+            return new Rectangle(getNextCoords(), rect.Size);
         }
 
         public void flipAngleHorizontaly() {
@@ -52,6 +51,11 @@ namespace BreakOutGameCSharp
         {
             if (angle > 360) angle -= 360;
             if (angle < -360) angle += 360;
+        }
+
+        public void draw(Graphics g)
+        {
+            g.DrawImage(image, rect);
         }
 
     }

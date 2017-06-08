@@ -10,20 +10,28 @@ namespace BreakOutGameCSharp
 {
     class PlayerBat
     {
-        public int x, y;
+        public int  width, height;
+
+        public Rectangle rect;
         
-        
-        public Image image = new Bitmap (Properties.Resources.ResourceManager.GetObject("bat_yellow") as Image, new Size(100, 20)) as Image;
+        public Image image = Properties.Resources.ResourceManager.GetObject("bat_yellow") as Image;
 
 
 
-        public PlayerBat(int x, int y) {
-            this.x = x;
-            this.y = y;
+        public PlayerBat(int x, int y)
+        {
+            rect = new Rectangle(x, y, 100, 20);
         }
 
-        public Rectangle getRect() {
-            return new Rectangle(x, y, 100, 20);
+        public Rectangle getRect()
+        {
+            return rect;
         }
+
+        public void draw(Graphics g)
+        {
+            g.DrawImage(image, rect);
+        }
+
     }
 }

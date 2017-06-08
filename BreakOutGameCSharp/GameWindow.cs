@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
-
-
 
 namespace BreakOutGameCSharp
 {
@@ -38,23 +31,23 @@ namespace BreakOutGameCSharp
             timer.Elapsed += Timer_Elapsed;
             this.timer.Start();
 
-            //Cursor.Hide();
         }
 
         private void drawGameWindow(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(playerBat.image, new Point(playerBat.x, playerBat.y));
-            e.Graphics.DrawImage(ball.image, new Point(ball.x, ball.y));
+            playerBat.draw(e.Graphics);
+            ball.draw(e.Graphics);
+
             for (int i = brickList.Count - 1; i >= 0; i--)
             {
-                e.Graphics.DrawImage(brickList[i].image, new Point(brickList[i].x, brickList[i].y));
+                brickList[i].draw(e.Graphics);
             } 
         }
 
         private void GameWindow_MouseMove(object sender, MouseEventArgs e)
         {
 
-            playerBat.x = Control.MousePosition.X - this.Location.X - 55;
+            playerBat.rect.X = Control.MousePosition.X - this.Location.X - 55;
         }
 
 
@@ -90,7 +83,7 @@ namespace BreakOutGameCSharp
             {
                 if (ball.getNextRectangle().IntersectsWith(brickList[i].getRect()))
                 {
-                    if (ball.x < brickList[i].x || ball.x > brickList[i].x + 50) ball.flipAngleVerticaly();
+                    if (ball.rect.X < brickList[i].rect.X || ball.rect.X > brickList[i].rect.X + 50) ball.flipAngleVerticaly();
                     else ball.flipAngleHorizontaly();
                     brickList.RemoveAt(i);
                     return;
@@ -98,8 +91,5 @@ namespace BreakOutGameCSharp
                 }
             }
         }
-
-        
-
     }
 }
