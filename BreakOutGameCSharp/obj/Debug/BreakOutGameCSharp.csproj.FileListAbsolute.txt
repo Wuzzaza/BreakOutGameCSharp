@@ -16,3 +16,12 @@ D:\Docs\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.c
 D:\Docs\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.GameWindow.resources
 D:\Docs\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.Properties.Resources.resources
 D:\Docs\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.csproj.GenerateResource.Cache
+E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\bin\Debug\BreakOutGameCSharp.exe.config
+E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.exe
+E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.pdb
+E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\bin\Debug\BreakOutGameCSharp.exe
+E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\bin\Debug\BreakOutGameCSharp.pdb
+E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.csprojResolveAssemblyReference.cache
+E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.GameWindow.resources
+E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.Properties.Resources.resources
+E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.csproj.GenerateResource.Cache

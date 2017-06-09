@@ -8,12 +8,14 @@ namespace BreakOutGameCSharp
 {
         public partial class GameWindow : Form
     {
-        const int FPS = 60;
+        const int FPS = 60, SCORES_FOR_BRICK = 100, SCORE_ADDED_AT_TICK = 10;
 
         PlayerBat playerBat;
         Ball ball;
         List<Brick> brickList = new List<Brick>();
         System.Timers.Timer timer;
+
+        int playerScore, scoreToAdd;
 
         public GameWindow()
         {
@@ -31,6 +33,9 @@ namespace BreakOutGameCSharp
             timer.Elapsed += Timer_Elapsed;
             this.timer.Start();
 
+            playerScore = 0;
+            scoreToAdd = 0;
+
         }
 
         private void drawGameWindow(object sender, PaintEventArgs e)
@@ -41,7 +46,10 @@ namespace BreakOutGameCSharp
             for (int i = brickList.Count - 1; i >= 0; i--)
             {
                 brickList[i].draw(e.Graphics);
-            } 
+            }
+
+            e.Graphics.DrawString("SCORE: " + playerScore.ToString(), new Font(FontFamily.GenericSansSerif, 22, FontStyle.Bold), new SolidBrush(Color.Black), 500, 10);
+
         }
 
         private void GameWindow_MouseMove(object sender, MouseEventArgs e)
@@ -60,6 +68,12 @@ namespace BreakOutGameCSharp
 
             ball.move();
 
+            if (scoreToAdd >= (0 + SCORE_ADDED_AT_TICK)) {
+
+                scoreToAdd -= SCORE_ADDED_AT_TICK;
+                playerScore += SCORE_ADDED_AT_TICK;
+            }
+
             this.Invalidate();
 
         }
@@ -69,8 +83,6 @@ namespace BreakOutGameCSharp
 
             if (nextBallCoords.X < 0 || nextBallCoords.X > 800 - 30) ball.flipAngleVerticaly();
             if (nextBallCoords.Y < 0 || nextBallCoords.Y > 600 - 30) ball.flipAngleHorizontaly();
-
-            Console.WriteLine(ball.angle.ToString());
 
         }
 
@@ -85,7 +97,12 @@ namespace BreakOutGameCSharp
                 {
                     if (ball.rect.X < brickList[i].rect.X || ball.rect.X > brickList[i].rect.X + 50) ball.flipAngleVerticaly();
                     else ball.flipAngleHorizontaly();
+
                     brickList.RemoveAt(i);
+
+                    scoreToAdd += SCORES_FOR_BRICK;
+
+                    Console.WriteLine(playerScore);
                     return;
                     
                 }
