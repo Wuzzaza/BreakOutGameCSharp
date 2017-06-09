@@ -13,14 +13,23 @@ namespace BreakOutGameCSharp
         PlayerBat playerBat;
         Ball ball;
         List<Brick> brickList = new List<Brick>();
-        System.Timers.Timer timer;
+        GameMenu gameMenu;
+        public System.Timers.Timer timer { get; set; }
 
         int playerScore, scoreToAdd;
 
         public GameWindow()
         {
             InitializeComponent();
+
+            StartPosition = FormStartPosition.CenterScreen;
+
             this.Paint += new PaintEventHandler(drawGameWindow);
+
+            gameMenu = new GameMenu();
+            gameMenu.ShowInTaskbar = false;
+
+
             playerBat = new PlayerBat(350, 520);
             ball = new Ball(390, 500);
 
@@ -35,6 +44,8 @@ namespace BreakOutGameCSharp
 
             playerScore = 0;
             scoreToAdd = 0;
+
+            pauseGame();
 
         }
 
@@ -78,6 +89,12 @@ namespace BreakOutGameCSharp
 
         }
 
+        private void GameWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) pauseGame();
+
+        }
+
         private void checkBorderCollision() {
             Point nextBallCoords = ball.getNextCoords();
 
@@ -107,6 +124,30 @@ namespace BreakOutGameCSharp
                     
                 }
             }
+        }
+
+        public void continueGame() {
+            timer.Start();
+        }
+
+        public void newGame() {
+            playerBat = new PlayerBat(350, 520);
+            ball = new Ball(390, 500);
+
+            brickList = new List<Brick>();
+
+            for (int i = 0; i < 70; i++)
+            {
+                brickList.Add(new Brick(((i % 14) * 50) + 50, ((i / 14) * 20) + 100));
+            }
+
+            this.Invalidate();
+        }
+
+        public void pauseGame() {
+            timer.Stop();
+            gameMenu.StartPosition = FormStartPosition.CenterParent;
+            gameMenu.ShowDialog(this);
         }
     }
 }

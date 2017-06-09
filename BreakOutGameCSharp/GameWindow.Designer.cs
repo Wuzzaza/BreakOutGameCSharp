@@ -57,6 +57,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "GameWindow";
             this.Text = "BreakOut Game";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameWindow_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GameWindow_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();

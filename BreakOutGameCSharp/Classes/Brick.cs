@@ -8,6 +8,7 @@ using System.Drawing;
 
 namespace BreakOutGameCSharp
 {
+    [Serializable]
     class Brick
     {
         public const int WIDTH = 50, HEIGHT = 20;

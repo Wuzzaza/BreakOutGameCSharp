@@ -7,7 +7,8 @@ using System.Drawing;
 
 namespace BreakOutGameCSharp
 {
-        class Ball
+    [Serializable]
+    class Ball
     {
         const int BALL_SPEED = 10, WIDTH = 20, HEIGHT = 20;
 

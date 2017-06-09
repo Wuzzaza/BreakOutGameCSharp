@@ -8,6 +8,7 @@ using System.Drawing;
 
 namespace BreakOutGameCSharp
 {
+    [Serializable]
     class PlayerBat
     {
         public int  width, height;
