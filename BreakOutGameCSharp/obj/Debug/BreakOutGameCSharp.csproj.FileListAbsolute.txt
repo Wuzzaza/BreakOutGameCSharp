@@ -26,3 +26,4 @@ E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.GameWi
 E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.Properties.Resources.resources
 E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.csproj.GenerateResource.Cache
 D:\Docs\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.GameMenu.resources
+E:\GIT\BreakOutGameCSharp\BreakOutGameCSharp\obj\Debug\BreakOutGameCSharp.GameMenu.resources
