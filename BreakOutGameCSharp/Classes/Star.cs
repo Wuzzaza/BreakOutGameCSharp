@@ -1,8 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace BreakOutGameCSharp
 {
-
+    [Serializable]
     class Star
     {
         public const int WIDTH = 30, HEIGHT = 30, MOVE_SPEED = 5;

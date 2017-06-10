@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace BreakOutGameCSharp
@@ -42,6 +36,16 @@ namespace BreakOutGameCSharp
         private void button1_Click(object sender, EventArgs e)
         {
             (Owner as GameWindow).newGame();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            (Owner as GameWindow).saveGame();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            (Owner as GameWindow).loadGame();
         }
     }
 }

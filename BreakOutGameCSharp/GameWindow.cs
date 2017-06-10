@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -17,13 +18,13 @@ namespace BreakOutGameCSharp
         PlayerBat playerBat;
         Ball ball;
         List<Brick> brickList = new List<Brick>();
+        List<Star> starList = new List<Star>();
+        int playerScore, scoreToAdd;
+
         Random randomizer = new Random();
 
-        List<Star> starList = new List<Star>();
         GameMenu gameMenu;
         public System.Timers.Timer timer { get; set; }
-
-        int playerScore, scoreToAdd;
 
         public GameWindow()
         {
@@ -159,8 +160,8 @@ namespace BreakOutGameCSharp
         public void newGame() {
             playerBat = new PlayerBat(350, 520);
             ball = new Ball(390, 500);
-
             brickList = new List<Brick>();
+            starList = new List<Star>();
 
             for (int i = 0; i < 70; i++)
             {
@@ -179,6 +180,35 @@ namespace BreakOutGameCSharp
         public void generateStar(int x, int y)
         {
             starList.Add(new Star(x, y));
+        }
+
+        public void saveGame() {
+            using (Stream stream = File.Open("savegame.bin", FileMode.Create))
+            {
+                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                bformatter.Serialize(stream, playerBat);
+                bformatter.Serialize(stream, ball);
+                bformatter.Serialize(stream, playerScore);
+                bformatter.Serialize(stream, scoreToAdd);
+                bformatter.Serialize(stream, brickList);
+                bformatter.Serialize(stream, starList);
+            }
+        }
+
+        public void loadGame() {
+            if (File.Exists("savegame.bin")){
+                using (Stream stream = File.Open("savegame.bin", FileMode.Open))
+                {
+                    var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                    playerBat = bformatter.Deserialize(stream) as PlayerBat;
+                    ball = bformatter.Deserialize(stream) as Ball;
+                    playerScore = (int)bformatter.Deserialize(stream);
+                    scoreToAdd = (int)bformatter.Deserialize(stream);
+                    brickList = bformatter.Deserialize(stream) as List<Brick>;
+                    starList = bformatter.Deserialize(stream) as List<Star>;
+                    this.Invalidate();
+                }
+            }
         }
     }
 }
